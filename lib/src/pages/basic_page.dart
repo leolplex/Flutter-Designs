@@ -16,6 +16,10 @@ class BasicPage extends StatelessWidget {
                 Text("A lake with a bridge"),
                 Text("A lake that lies")
               ],
+            ),
+            Icon(
+              Icons.star,
+              color: Colors.red,
             )
           ],
         )
