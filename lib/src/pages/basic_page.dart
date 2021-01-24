@@ -12,7 +12,10 @@ class BasicPage extends StatelessWidget {
         Row(
           children: [
             Column(
-              children: [Text("data"), Text("data")],
+              children: [
+                Text("A lake with a bridge"),
+                Text("A lake that lies")
+              ],
             )
           ],
         )
