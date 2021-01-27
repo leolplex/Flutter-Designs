@@ -6,19 +6,19 @@ class ButtonsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        children: [
-          _backgroundAPP(),
-          SingleChildScrollView(
-            child: Column(
-              children: [
-                _titles(),
-              ],
-            ),
-          )
-        ],
-      ),
-    );
+        body: Stack(
+          children: [
+            _backgroundAPP(),
+            SingleChildScrollView(
+              child: Column(
+                children: [
+                  _titles(),
+                ],
+              ),
+            )
+          ],
+        ),
+        bottomNavigationBar: _bottomNavigationBar(context));
   }
 
   Widget _backgroundAPP() {
@@ -84,5 +84,39 @@ class ButtonsPage extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Widget _bottomNavigationBar(BuildContext context) {
+    return new Theme(
+        data: Theme.of(context).copyWith(
+            canvasColor: Color.fromRGBO(55, 57, 87, 1.0),
+            primaryColor: Colors.pinkAccent,
+            textTheme: Theme.of(context).textTheme.copyWith(
+                caption: TextStyle(color: Color.fromRGBO(116, 117, 152, 1.0)))),
+        child: BottomNavigationBar(
+          items: [
+            BottomNavigationBarItem(
+              label: '',
+              icon: Icon(
+                Icons.calendar_today,
+                size: 30.0,
+              ),
+            ),
+            BottomNavigationBarItem(
+              label: '',
+              icon: Icon(
+                Icons.bubble_chart,
+                size: 30.0,
+              ),
+            ),
+            BottomNavigationBarItem(
+              label: '',
+              icon: Icon(
+                Icons.supervised_user_circle,
+                size: 30.0,
+              ),
+            ),
+          ],
+        ));
   }
 }
