@@ -1,4 +1,5 @@
 import 'dart:math';
+import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
@@ -11,9 +12,7 @@ class ButtonsPage extends StatelessWidget {
             _backgroundAPP(),
             SingleChildScrollView(
               child: Column(
-                children: [
-                  _titles(),
-                ],
+                children: [_titles(), _roundedButtons()],
               ),
             )
           ],
@@ -118,5 +117,69 @@ class ButtonsPage extends StatelessWidget {
             ),
           ],
         ));
+  }
+
+  Widget _roundedButtons() {
+    return Table(
+      children: [
+        TableRow(children: [
+          _createRoundedButton(Colors.blue, Icons.border_all, 'General'),
+          _createRoundedButton(Colors.purpleAccent, Icons.directions_bus, 'Bus')
+        ]),
+        TableRow(children: [
+          _createRoundedButton(Colors.pinkAccent, Icons.shop, 'Buy'),
+          _createRoundedButton(Colors.orange, Icons.insert_drive_file, 'File')
+        ]),
+        TableRow(children: [
+          _createRoundedButton(
+              Colors.blueAccent, Icons.movie_filter, 'Entertaiment'),
+          _createRoundedButton(Colors.green, Icons.cloud, 'Grocery')
+        ]),
+        TableRow(children: [
+          _createRoundedButton(
+              Colors.red, Icons.collections, 'Photos'),
+          _createRoundedButton(Colors.teal, Icons.help_outline, 'General')
+        ]),
+      ],
+    );
+  }
+
+  Widget _createRoundedButton(Color color, IconData icon, String text) {
+    return ClipRRect(
+      child: BackdropFilter(
+        filter: ImageFilter.blur(sigmaX: 3, sigmaY: 3),
+        child: Container(
+          height: 180.0,
+          margin: EdgeInsets.all(15.0),
+          decoration: BoxDecoration(
+              color: Color.fromRGBO(62, 66, 107, 0.70),
+              borderRadius: BorderRadius.circular(20.0)),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              SizedBox(
+                height: 5.0,
+              ),
+              CircleAvatar(
+                backgroundColor: color,
+                radius: 35.0,
+                child: Icon(
+                  icon,
+                  color: Colors.white,
+                  size: 30.0,
+                ),
+              ),
+              Text(
+                text,
+                style: TextStyle(color: color),
+              ),
+              SizedBox(
+                height: 5.0,
+              )
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }
