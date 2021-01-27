@@ -7,7 +7,16 @@ class ButtonsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
-        children: [_backgroundAPP()],
+        children: [
+          _backgroundAPP(),
+          SingleChildScrollView(
+            child: Column(
+              children: [
+                _titles(),
+              ],
+            ),
+          )
+        ],
       ),
     );
   }
@@ -46,6 +55,34 @@ class ButtonsPage extends StatelessWidget {
 
     return Stack(
       children: [gradient, Positioned(top: -100.0, child: pinkBox)],
+    );
+  }
+
+  Widget _titles() {
+    return SafeArea(
+      child: Container(
+        padding: EdgeInsets.all(20.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Classify transaction',
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 30.0,
+                  fontWeight: FontWeight.bold),
+            ),
+            SizedBox(height: 10.0),
+            Text(
+              'Classify this transaction into a particular category',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 18.0,
+              ),
+            )
+          ],
+        ),
+      ),
     );
   }
 }
