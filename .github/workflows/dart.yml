@@ -27,7 +27,7 @@ jobs:
     - run: echo 'export PATH="$PATH:/usr/lib/dart/bin"' >> ~/.profile
     - run: sudo snap install flutter --classic
     - run: flutter sdk-path
-    - run: flutter doctor
+    - run: pwd
     - run: flutter pub get
     - run: flutter test
     - run: flutter build apk
